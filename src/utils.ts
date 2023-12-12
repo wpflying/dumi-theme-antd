@@ -1,3 +1,4 @@
+// @ts-ignore
 import { history, useSiteData } from 'dumi';
 import type { ISidebarGroup } from 'dumi/dist/client/theme-api/types';
 

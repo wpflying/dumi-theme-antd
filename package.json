@@ -91,9 +91,9 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "http://npm.ezbim.cn:3038"
   },
   "authors": [
-    "KuangPF"
+    "1183963081@qq.com"
   ]
 }
