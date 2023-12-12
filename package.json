@@ -1,5 +1,5 @@
 {
-  "name": "dumi-theme-yizhu",
+  "name": "dumi-theme-antd",
   "version": "0.3.12",
   "description": "Ant Design 5.0 官网风格类似的 dumi2 主题插件",
   "keywords": [
@@ -22,14 +22,14 @@
     "build": "father build",
     "build:docs": "cross-env APP_ROOT=example dumi build",
     "build:site": "cross-env APP_ROOT=example DEPLOY_SITE=local dumi build",
-    "site": "node app.js",
     "dev": "father dev",
     "docs": "cross-env APP_ROOT=example dumi dev",
     "lint": "pnpm run lint:es && pnpm run lint:css",
     "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\" --fix",
     "prepare": "husky install && father link-dev-theme",
-    "prepublishOnly": "father doctor && pnpm run build"
+    "prepublishOnly": "father doctor && pnpm run build",
+    "site": "node app.js"
   },
   "commitlint": {
     "extends": [
