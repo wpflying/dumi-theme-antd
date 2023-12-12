@@ -144,7 +144,7 @@ const Sidebar: FC = () => {
   } = useSiteToken();
   const { theme, isMobile } = useContext(SiteContext);
   const [menuItems, selectedKey] = useMenu();
-
+  console.log('wp-menuItems',menuItems);
   const isDark = theme.includes('dark');
 
   const handleShowMobileMenu = useCallback(() => {

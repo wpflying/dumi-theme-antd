@@ -1,0 +1,90 @@
+.yz-banner-content{
+    width: 100%;
+    height: 486px;
+    background-color:#efefed;
+}
+.yz-banner-content-title{
+    height: 56px;
+    font-size: 40px;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 600;
+    color: #0F0E2F;
+    line-height: 56px;
+    margin-top: 118px;
+}
+.yz-banner-content-search{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+}
+.search-center{
+    width: 650px;
+    height: 60px;
+}
+.dumi-default-search-bar{
+    background-color: #fff;
+}
+.search-center .dumi-default-search-shortcut{
+    display: none;
+}
+.search-center .dumi-default-search-bar-input{
+    width: 100%;
+    border: 0px;
+    outline: none;
+    height: 60px;
+    border-radius:0px;
+}
+.yz-banner-content-tips{
+    width: 450px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.yz-banner-content-tips>div{
+    flex: 1;
+    text-align: center;
+    align-items: center;
+    font-size: 14px;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 400;
+    color: #646870;
+    line-height: 20px;
+}
+.yz-banner-content-link-item{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 55px;
+}
+.yz-banner-content-link-item >div{
+    width: 380px;
+    height: 54px;
+    background: #F5F8FE;
+    border-radius: 8px;
+    border: 1px solid #F5F8FE;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    margin:  0 15px;
+}
+.yz-banner-content-link-item >div >span{
+    display:inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.footer-list{
+    width: 100vw;
+    height: 182px;
+    background: #F6F9FE;
+    display: flex;
+    justify-content: center;
+}
+    

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 11</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="帮助中心-首页" transform="translate(-575.000000, -1010.000000)">
+            <g id="编组-14" transform="translate(361.000000, 620.000000)">
+                <g id="编组-13" transform="translate(0.000000, 91.000000)">
+                    <g id="编组-12" transform="translate(150.000000, 297.000000)">
+                        <g id="编组-11" transform="translate(72.000000, 10.000000) rotate(-90.000000) translate(-72.000000, -10.000000) translate(64.000000, 2.000000)">
+                            <rect id="矩形" stroke="#979797" stroke-width="0.8" fill="#D8D8D8" opacity="0.00999999978" x="0.4" y="0.4" width="15.2" height="15.2"></rect>
+                            <polyline id="路径" stroke="#00C1DC" stroke-linecap="round" stroke-linejoin="round" points="12.8 5.6 8 10.4 3.2 5.6"></polyline>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

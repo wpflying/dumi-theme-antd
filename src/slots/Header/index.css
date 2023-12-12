@@ -1,0 +1,14 @@
+.header-btn{
+    width: 105px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 400;
+    color: #FFFFFF;
+    background-color: #00C1DC;
+    border-radius: 4px;
+    cursor: pointer;
+}

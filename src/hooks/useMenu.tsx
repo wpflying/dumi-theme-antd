@@ -1,7 +1,7 @@
 import type { MenuProps } from 'antd';
 import { Tag } from 'antd';
 import { ItemType } from 'antd/lib/menu/hooks/useItems';
-import { Link, useFullSidebarData, useLocation, useSidebarData } from 'dumi';
+import { Link, useFullSidebarData, useLocation, useSidebarData,useSiteData } from 'dumi';
 import type { ReactNode } from 'react';
 import { useMemo } from 'react';
 import type {
@@ -32,6 +32,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
   // 提取一级导航下侧边栏数据
   const currentNavKey = `/${pathname.split('/')?.[1]}`;
   const sidebarData = navSecondSidebarData[currentNavKey];
+  console.log('wp-options',fullSidebarData);
   const linkTitleMap = useMemo(() => {
     return Object.values(fullSidebarData).reduce<Record<string, string>>((res, sidebar) => {
       const sidebarItems = sidebar.map((item) => item.children).flat();

@@ -6,16 +6,13 @@ import classNames from 'classnames';
 import { useLocation } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import React, { useCallback, useContext, useEffect, useState, type FC } from 'react';
-import LangSwitch from 'dumi/theme/slots/LangSwitch';
-import RtlSwitch from 'dumi/theme/slots/RtlSwitch';
 import useAdditionalThemeConfig from '../../hooks/useAdditionalThemeConfig';
 import useSiteToken from '../../hooks/useSiteToken';
 import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
-import HeaderExtra from './HeaderExtral';
 import Logo from './Logo';
-import More from './More';
 import Navigation from './Navigation';
+import BackBtn from './BackToMain';
 
 interface HeaderState {
   windowWidth: number;
@@ -225,36 +222,20 @@ const Header: FC = () => {
         options={versionOptions}
       />
     ) : null,
-    <More key="more" />,
-    <LangSwitch key={new Date().getTime()} />,
-    <RtlSwitch key="direction" />,
-    <HeaderExtra key="header-Extra" />
+    <BackBtn />
+    // <More key="more" />,
+    // <LangSwitch key={new Date().getTime()} />,
+    // <RtlSwitch key="direction" />,
+    // <HeaderExtra key="header-Extra" />
   ];
   if (windowWidth < RESPONSIVE_XS) {
     menu = [navigationNode];
   }
-
+  // let menu = [<BackBtn />];
   const colProps = isHome ? colPropsHome : _colProps;
 
   return (
     <header css={style.header} className={headerClassName}>
-      {isMobile && (
-        <ClassNames>
-          {({ css: cssFn }) => (
-            <Popover
-              overlayClassName={cssFn(style.popoverMenu)}
-              placement="bottomRight"
-              content={menu}
-              trigger="click"
-              open={menuVisible}
-              arrow
-              onOpenChange={onMenuVisibleChange}
-            >
-              <MenuOutlined className="nav-phone-icon" rev={undefined} />
-            </Popover>
-          )}
-        </ClassNames>
-      )}
       <Row
         style={{
           height: 64
@@ -265,9 +246,9 @@ const Header: FC = () => {
         </Col>
         <Col {...colProps[1]} css={style.menuRow}>
           <div className="nav-search-wrapper">
-            <DumiSearchBar />
+            {/* <DumiSearchBar /> */}
           </div>
-          {!isMobile && menu}
+          {menu}
         </Col>
       </Row>
     </header>

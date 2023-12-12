@@ -132,12 +132,6 @@ const GlobalLayout: FC = () => {
         }}
       >
         <Outlet />
-        {prefersColor.switch && (
-          <ThemeSwitch
-            value={theme}
-            onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
-          />
-        )}
       </ConfigProvider>
     </SiteContext.Provider>
   );
