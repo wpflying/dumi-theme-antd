@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+import Icon from '@ant-design/icons';
+import React from 'react';
+
+const SVGIcon: React.FC = () => (
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <title>热门</title>
     <defs>
         <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
@@ -18,3 +21,10 @@
         </g>
     </g>
 </svg>
+);
+
+const HotIcon: React.FC<{ className?: string }> = (props) => (
+  <Icon component={SVGIcon} {...props} />
+);
+
+export default HotIcon;

@@ -1,17 +1,18 @@
 import './index.css';
+import { Button } from 'antd';
 function FooterItem(props){
-    const { isbtn } = props;
+    const { isBtn,icon,title,des,tel,contactInformation } = props;
     return <div className='footer-item'>
         <div className='item-left'>
-            <div className='item-left-title'>在线咨询</div>
-            <div className='item-left-des'>提供全方位的技术支持服务</div>
+            <div className='item-left-title'>{title}</div>
+            <div className='item-left-des'>{des}</div>
             <div className='item-left-numnber'>
-            021-61234725
+                {isBtn ? <Button style={{background:'#00C1DC'}} type="primary">立即咨询</Button> : contactInformation}
             </div>
         </div>
         <div className='item-right'>
                 <div>
-                    图
+                    {icon()}
                 </div>
         </div>
         <div className='line-border'/>

@@ -190,6 +190,8 @@ const Header: FC = () => {
 
   const { pathname } = location;
   const isHome = ['', 'index', 'index-cn'].includes(pathname);
+  const isHomePage = pathname === '/';
+  console.log('wp-isHome',pathname);
   const { windowWidth, menuVisible } = headerState;
   const style = useStyle();
   const headerClassName = classNames({
@@ -223,17 +225,12 @@ const Header: FC = () => {
       />
     ) : null,
     <BackBtn />
-    // <More key="more" />,
-    // <LangSwitch key={new Date().getTime()} />,
-    // <RtlSwitch key="direction" />,
-    // <HeaderExtra key="header-Extra" />
   ];
   if (windowWidth < RESPONSIVE_XS) {
     menu = [navigationNode];
   }
   // let menu = [<BackBtn />];
   const colProps = isHome ? colPropsHome : _colProps;
-
   return (
     <header css={style.header} className={headerClassName}>
       <Row
@@ -246,7 +243,7 @@ const Header: FC = () => {
         </Col>
         <Col {...colProps[1]} css={style.menuRow}>
           <div className="nav-search-wrapper">
-            {/* <DumiSearchBar /> */}
+            { !isHomePage && <DumiSearchBar />  }
           </div>
           {menu}
         </Col>

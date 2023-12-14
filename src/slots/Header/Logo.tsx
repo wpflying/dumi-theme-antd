@@ -60,12 +60,12 @@ const Logo = () => {
   const { search } = useLocation();
   const locale = useLocale();
   const logImgUrl =
-    themeConfig.logo || 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
+    themeConfig.logo || require('../../icons/nav_logo.png');
   const content = useMemo(
     () => (
       <Fragment>
-        <img alt="logo" src={logImgUrl} />
-        <span style={{ lineHeight: 32 }}>{themeConfig.name}</span>
+        <img alt="logo" src={require('../../icons/nav_logo.png')} />
+        {/* <span style={{ lineHeight: 32 }}>{themeConfig.name}</span> */}
       </Fragment>
     ),
     [logImgUrl, themeConfig.name]

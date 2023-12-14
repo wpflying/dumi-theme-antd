@@ -97,7 +97,7 @@ const Footer: FC = () => {
       bottom={
         <span
           dangerouslySetInnerHTML={{
-            __html: footer
+            __html: 'Copyright @ 2014-2023 译筑信息科技 (上海)有限公司 沪ICP备15010930号-1'
           }}
         />
       }
