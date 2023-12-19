@@ -212,23 +212,8 @@ const Header: FC = () => {
     label: version
   }));
   let menu: (React.ReactElement | null)[] = [
-    navigationNode,
-    versionOptions.length > 0 ? (
-      <Select
-        key="version"
-        size="small"
-        defaultValue={versionOptions[0]?.value}
-        onChange={handleVersionChange}
-        popupMatchSelectWidth={false}
-        getPopupContainer={(trigger) => trigger.parentNode}
-        options={versionOptions}
-      />
-    ) : null,
     <BackBtn />
   ];
-  if (windowWidth < RESPONSIVE_XS) {
-    menu = [navigationNode];
-  }
   // let menu = [<BackBtn />];
   const colProps = isHome ? colPropsHome : _colProps;
   return (

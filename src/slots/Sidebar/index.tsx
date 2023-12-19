@@ -143,10 +143,8 @@ const Sidebar: FC = () => {
     token: { colorBgContainer }
   } = useSiteToken();
   const { theme, isMobile } = useContext(SiteContext);
-  const [menuItems, selectedKey] = useMenu();
-  console.log('wp-menuItems',menuItems);
+  const [menuItems, selectedKey,defaultOpenkeys] = useMenu();
   const isDark = theme.includes('dark');
-
   const handleShowMobileMenu = useCallback(() => {
     setSidebarState((prev) => ({
       ...prev,
@@ -186,36 +184,15 @@ const Sidebar: FC = () => {
         mode="inline"
         theme={isDark ? 'dark' : 'light'}
         selectedKeys={[selectedKey]}
-        defaultOpenKeys={sidebarData?.map(({ title }) => title).filter((item) => item) as string[]}
+        defaultOpenKeys={defaultOpenkeys}
       />
     </ConfigProvider>
   );
-
-  return isMobile ? (
-    <React.Fragment>
-      <MobileMenu
-        key="mobile-menu"
-        contentWrapperStyle={{
-          width: '300px'
-        }}
-        open={mobileMenuVisible}
-        onClose={handleCloseMobileMenu}
-      >
-        {menuChild}
-      </MobileMenu>
-      {(menuItems ?? []).length > 1 ? (
-        <div css={styles.mobileMenu} onClick={handleShowMobileMenu}>
-          <UnorderedListOutlined />
-        </div>
-      ) : null}
-    </React.Fragment>
-  ) : (
-    <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} css={styles.mainMenu}>
-      <Affix>
-        <section className="main-menu-inner">{menuChild}</section>
-      </Affix>
-    </Col>
-  );
+  return  <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} css={styles.mainMenu}>
+    <Affix>
+      <section className="main-menu-inner">{menuChild}</section>
+    </Affix>
+  </Col>
 };
 
 export default Sidebar;

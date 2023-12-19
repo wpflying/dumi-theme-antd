@@ -30,6 +30,8 @@
     border-radius: 8px;
     border: 1px solid #F0F2F5;
     margin: 15px;
+    display: flex;
+    flex-direction: column;
     
 }
 .column-artcile-header{
@@ -74,6 +76,8 @@
 }
 .art-list{
     margin-top: 40px;
+    flex: 1;
+    overflow: hidden;
 }
 
 .list-item{
@@ -106,7 +110,9 @@
     justify-content: center;
     align-items: center;
 }
-
+.art-footer>a{
+    color: #00C1DC;
+}
 .footer-item{
     display: flex;
     width: 400px;

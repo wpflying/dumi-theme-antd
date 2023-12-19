@@ -1,3 +1,7 @@
+a{
+    text-decoration: none;
+    color: #646870;
+}
 .yz-banner-content{
     width: 100%;
     height: 486px;
@@ -58,6 +62,10 @@
     line-height: 20px;
     cursor: pointer;
 }
+.yz-banner-content-tips>div>a{
+    text-decoration: none;
+    color: #646870;
+}
 .yz-banner-content-tips>div>span{
     display: inline-block;
     width: 24px;
@@ -71,7 +79,7 @@
     margin-top: 55px;
 }
 .yz-banner-content-link-item >div{
-    width: 380px;
+    width: 360px;
     height: 54px;
     background: #F5F8FE;
     border-radius: 8px;
@@ -81,6 +89,9 @@
     align-items: center;
     margin:  0 15px;
     cursor: pointer;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
 }
 .yz-banner-content-link-item >div >span{
     display:inline-block;
@@ -97,3 +108,7 @@
     justify-content: center;
 }
     
+.dumi-default-search-popover{
+    z-index: 99 !important;
+    display: block;
+}

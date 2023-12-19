@@ -1,21 +1,17 @@
 import { css } from '@emotion/react';
-import { Button, Space, Typography } from 'antd';
-import { Link, useFullSidebarData, useSearchParams ,useLocation,useSidebarData} from 'dumi';
+import { Link, useFullSidebarData,useLocation} from 'dumi';
 import React, { useContext, type FC } from 'react';
 import useAdditionalThemeConfig from '../../hooks/useAdditionalThemeConfig';
-import useLocaleValue from '../../hooks/useLocaleValue';
 import useSiteToken from '../../hooks/useSiteToken';
 import SiteContext from '../../slots/SiteContext';
 import type { SiteContextProps } from '../../slots/SiteContext';
-import { IAction, IBannerConfig } from '../../types';
+import { IBannerConfig } from '../../types';
 import ArticleList from './components/Article';
 import FooterItem from './components/FooterItem';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import './index.css';
 
-import { handleFullSidebarData, isExternalLinks } from '../../utils';
-import Features from './components/Features';
-import { GroupMask } from './components/Group';
+import { handleFullSidebarData } from '../../utils';
 import  QuestIcon from '../../icons/QuestIcon';
 import  HelpIcon from '../../icons/HelpIcon';
 import  HotIcon from '../../icons/HotIcon';
@@ -23,7 +19,8 @@ import  ProblemIcon from '../../icons/ProblemIcon';
 import ChartIcon from '../../icons/ChartIcon';
 import PhoneIcon from '../../icons/PhoneIcon';
 import MailIcon from '../../icons/MailIcon';
-
+import meunData  from '../../hooks/menuData';
+import useLocaleValue from '../../hooks/useLocaleValue';
 const bannerConfigDefault: IBannerConfig = {
   showBanner: true,
   bannerMobileImgUrl:'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JmlaR5oQn3MAAAAAAAAAAAAADrJ8AQ/original',
@@ -37,8 +34,7 @@ const useStyle = () => {
   const { pathname } = useLocation();
   const navSecondSidebarData = handleFullSidebarData(fullSidebarData);
   const currentNavKey = `/${pathname.split('/')?.[1]}`;
-  const sidebarData = navSecondSidebarData[currentNavKey];
-  console.log('wp-super-data',navSecondSidebarData)
+  
   return {
     mainContent: css`
       position: relative;
@@ -102,10 +98,12 @@ const HomeBaseLayout: FC = () => {
   const style = useStyle();
   const {  theme } = useContext<SiteContextProps>(SiteContext);
   const { bannerConfig, name } = useAdditionalThemeConfig();
+  const meunDatas = useLocaleValue('defaultMeun');
   // const actions: IAction[] = useLocaleValue('actions');
   // const { token } = useSiteToken();
   // const title = useLocaleValue('title');
-  // const description = useLocaleValue('description');
+  // const meunDatas = useLocaleValue('title');
+
   // const [searchParams] = useSearchParams();
 
   // 如果配置了 bannerImgUrl 字段，展示配置图片，否则展示 ant-design 默认 banner 视频
@@ -115,7 +113,7 @@ const HomeBaseLayout: FC = () => {
   );
 
   const bannerContent = <div className='yz-banner-content'>
-      <div className='yz-banner-content-title'>请问有神么可以帮助你？</div>
+      <div className='yz-banner-content-title'>请问有什么可以帮助你？</div>
       <div className='yz-banner-content-search'> 
           <div className='search-center'>
             <DumiSearchBar/>
@@ -123,15 +121,16 @@ const HomeBaseLayout: FC = () => {
           
       </div>
       <div className='yz-banner-content-tips'>
-        <div> <HotIcon /> 热门搜索</div>
-        <div>子表单</div>
-        <div>聚合表</div>
-        <div>二维码</div>
+        <div><Link to='/introduce-art'> <HotIcon /> 热门搜索</Link></div>
+        <div><Link to='/frist-app'>  子表单</Link></div>
+        <div><Link to='/introduce-reporting-analysis'>  聚合表</Link></div>
+        <div><Link to='/introduce-art'>  二维码</Link></div>
       </div>
       <div className='yz-banner-content-link-item'>
-        <div className='item-tips'> <HelpIcon /> 新手帮助</div>
-        <div className='item-tips'> <ProblemIcon /> 进阶管理</div>
-        <div className='item-tips'> <QuestIcon /> 常见问题</div>
+        <div className='item-tips'><Link to='/introduction-art'> <HelpIcon /> 新手帮助</Link></div>
+        <div className='item-tips'><Link to='/introduction-art'> <HelpIcon /> 新手帮助</Link></div>
+        <div className='item-tips'><Link to='/introduction-art'> <ProblemIcon /> 进阶管理</Link></div>
+        <div className='item-tips'><Link to='/introduction-art'> <QuestIcon /> 常见问题</Link></div>
       </div>
   </div>
   return (
@@ -149,8 +148,9 @@ const HomeBaseLayout: FC = () => {
         </div>
       <div style={{ position: 'relative' }}>
         <div>
-            <ArticleList title='文档中心'/>
-            <ArticleList title='五代码专题'/>
+          {meunDatas.map(a=>{
+            return  <ArticleList title={a.title} itemData={a} key ={a.key}/>
+          })}
         </div>
         <div className='footer-list'>
           {allFooterData.map(item=><FooterItem key={item.title} {...item}/>)}
