@@ -1,17 +1,10 @@
-import { UnorderedListOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';
 import { Affix, Col, ConfigProvider, Menu } from 'antd';
-import { useSidebarData } from 'dumi';
-import MobileMenu from 'rc-drawer';
 import 'rc-drawer/assets/index.css';
-import React, { FC, useCallback, useContext, useEffect, useState } from 'react';
+import { FC, useContext } from 'react';
 import useMenu from '../../hooks/useMenu';
 import useSiteToken from '../../hooks/useSiteToken';
 import SiteContext from '../SiteContext';
-
-interface SidebarState {
-  mobileMenuVisible: boolean;
-}
 
 const useStyle = () => {
   const { token } = useSiteToken();
@@ -136,36 +129,15 @@ const useStyle = () => {
 };
 
 const Sidebar: FC = () => {
-  const [sidebarState, setSidebarState] = useState<SidebarState>({ mobileMenuVisible: false });
-  const sidebarData = useSidebarData();
   const styles = useStyle();
   const {
     token: { colorBgContainer }
   } = useSiteToken();
-  const { theme, isMobile } = useContext(SiteContext);
+  const { theme } = useContext(SiteContext);
   const [menuItems, selectedKey,defaultOpenkeys] = useMenu();
   const isDark = theme.includes('dark');
-  const handleShowMobileMenu = useCallback(() => {
-    setSidebarState((prev) => ({
-      ...prev,
-      mobileMenuVisible: true
-    }));
-  }, []);
 
-  const handleCloseMobileMenu = useCallback(() => {
-    setSidebarState((prev) => ({
-      ...prev,
-      mobileMenuVisible: false
-    }));
-  }, []);
 
-  useEffect(() => {
-    if (isMobile) {
-      handleCloseMobileMenu();
-    }
-  }, [isMobile, handleCloseMobileMenu]);
-
-  const { mobileMenuVisible } = sidebarState;
 
   const menuChild = (
     <ConfigProvider

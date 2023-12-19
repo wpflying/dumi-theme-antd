@@ -1,22 +1,8 @@
 import type { MenuProps } from 'antd';
-import { Tag } from 'antd';
-import { ItemType } from 'antd/lib/menu/hooks/useItems';
-import { Link, useFullSidebarData, useLocation, useSidebarData,useSiteData } from 'dumi';
+import { Link, useLocation } from 'dumi';
 import type { ReactNode } from 'react';
-import React , { useMemo } from 'react';
-// import meunData from './menuData';
-import type {
-  ISidebarGroupModePathItem,
-  SidebarEnhanceGroupType,
-  SidebarEnhanceItems,
-  SidebarEnhanceItemType,
-  SidebarEnhanceSubType,
-  SidebarEnhanceType
-} from '../types';
-import { removeTitleCode, handleFullSidebarData } from '../utils';
-import useAdditionalThemeConfig from './useAdditionalThemeConfig';
-import pkgJSON from '../../package.json';
-import _, { values } from 'lodash';
+import _ from 'lodash';
+
 import useLocaleValue from './useLocaleValue';
 type MenuItem = Required<MenuProps>['items'][number];
 export type UseMenuOptions = {
@@ -64,7 +50,6 @@ function findDescendantsAndParentIds(arr, findKey) {
 
 function getItem(a:any): MenuItem {
   const {title,link,icon,children,type} = a;
-  console.log('wp-a',a)
   return {
     key:link || title,
     label:<Link to={`${link}`}>{title}</Link>,

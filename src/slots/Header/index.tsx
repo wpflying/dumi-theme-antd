@@ -1,7 +1,6 @@
 /* eslint-disable import/no-unresolved */
-import { MenuOutlined } from '@ant-design/icons';
-import { ClassNames, css } from '@emotion/react';
-import { Col, Popover, Row, Select } from 'antd';
+import { css } from '@emotion/react';
+import { Col, Row} from 'antd';
 import classNames from 'classnames';
 import { useLocation } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
@@ -11,7 +10,6 @@ import useSiteToken from '../../hooks/useSiteToken';
 import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
 import Logo from './Logo';
-import Navigation from './Navigation';
 import BackBtn from './BackToMain';
 
 interface HeaderState {
@@ -145,13 +143,11 @@ const useStyle = () => {
 };
 
 const Header: FC = () => {
-  const { isMobile } = useContext<SiteContextProps>(SiteContext);
   const [headerState, setHeaderState] = useState<HeaderState>({
     windowWidth: 1400,
     menuVisible: false
   });
   const location = useLocation();
-  const { docVersions } = useAdditionalThemeConfig();
 
   const onWindowResize = useCallback(() => {
     setHeaderState((prev) => ({
@@ -165,16 +161,7 @@ const Header: FC = () => {
       menuVisible: false
     }));
   }, []);
-  const onMenuVisibleChange = useCallback((visible: boolean) => {
-    setHeaderState((prev) => ({
-      ...prev,
-      menuVisible: visible
-    }));
-  }, []);
 
-  const handleVersionChange = useCallback((url: string) => {
-    window.location.href = url;
-  }, []);
 
   useEffect(() => {
     handleHideMenu();
@@ -191,8 +178,7 @@ const Header: FC = () => {
   const { pathname } = location;
   const isHome = ['', 'index', 'index-cn'].includes(pathname);
   const isHomePage = pathname === '/';
-  console.log('wp-isHome',pathname);
-  const { windowWidth, menuVisible } = headerState;
+  const { windowWidth } = headerState;
   const style = useStyle();
   const headerClassName = classNames({
     clearfix: true,
@@ -206,11 +192,6 @@ const Header: FC = () => {
     responsive = 'narrow';
   }
 
-  const navigationNode = <Navigation key="nav" isMobile={isMobile} responsive={responsive} />;
-  const versionOptions = Object.keys(docVersions ?? {}).map((version) => ({
-    value: docVersions?.[version],
-    label: version
-  }));
   let menu: (React.ReactElement | null)[] = [
     <BackBtn />
   ];

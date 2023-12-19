@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { Link, useFullSidebarData,useLocation} from 'dumi';
+import { Link,} from 'dumi';
 import React, { useContext, type FC } from 'react';
 import useAdditionalThemeConfig from '../../hooks/useAdditionalThemeConfig';
 import useSiteToken from '../../hooks/useSiteToken';
@@ -11,7 +11,6 @@ import FooterItem from './components/FooterItem';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import './index.css';
 
-import { handleFullSidebarData } from '../../utils';
 import  QuestIcon from '../../icons/QuestIcon';
 import  HelpIcon from '../../icons/HelpIcon';
 import  HotIcon from '../../icons/HotIcon';
@@ -19,7 +18,6 @@ import  ProblemIcon from '../../icons/ProblemIcon';
 import ChartIcon from '../../icons/ChartIcon';
 import PhoneIcon from '../../icons/PhoneIcon';
 import MailIcon from '../../icons/MailIcon';
-import meunData  from '../../hooks/menuData';
 import useLocaleValue from '../../hooks/useLocaleValue';
 const bannerConfigDefault: IBannerConfig = {
   showBanner: true,
@@ -30,10 +28,6 @@ const bannerConfigDefault: IBannerConfig = {
 const useStyle = () => {
   const { token } = useSiteToken();
   const { isMobile } = useContext(SiteContext);
-  const fullSidebarData = useFullSidebarData();
-  const { pathname } = useLocation();
-  const navSecondSidebarData = handleFullSidebarData(fullSidebarData);
-  const currentNavKey = `/${pathname.split('/')?.[1]}`;
   
   return {
     mainContent: css`
@@ -97,7 +91,7 @@ const allFooterData = [
 const HomeBaseLayout: FC = () => {
   const style = useStyle();
   const {  theme } = useContext<SiteContextProps>(SiteContext);
-  const { bannerConfig, name } = useAdditionalThemeConfig();
+  const { bannerConfig } = useAdditionalThemeConfig();
   const meunDatas = useLocaleValue('defaultMeun');
   // const actions: IAction[] = useLocaleValue('actions');
   // const { token } = useSiteToken();

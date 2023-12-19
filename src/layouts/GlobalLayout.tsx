@@ -12,7 +12,6 @@ import type { FC } from 'react';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import useAdditionalThemeConfig from '../hooks/useAdditionalThemeConfig';
 import type { ThemeName } from '../common/ThemeSwitch';
-import ThemeSwitch from '../common/ThemeSwitch';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
