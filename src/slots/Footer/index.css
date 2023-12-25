@@ -48,3 +48,14 @@
 .theme-footer-center .footer-center-right img{
     width: 100%;
 }
+.theme-footer-bottom{
+    height: 46px;
+    background: #151919;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 400;
+    color: #FFFFFF;
+}

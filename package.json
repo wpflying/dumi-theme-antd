@@ -1,7 +1,7 @@
 {
   "name": "dumi-theme-yizhu",
-  "version": "0.4.1",
-  "description": "Ant Design 5.0 官网风格类似的 dumi2 主题插件",
+  "version": "0.4.2",
+  "description": "转为YZ科技提供的主题 其他公司并不适用",
   "keywords": [
     "dumi",
     "dumi-theme",
@@ -91,7 +91,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "http://npm.ezbim.cn:3038/"
+    "registry": "https://registry.npmjs.org"
   },
   "authors": [
     "1183963081@qq.com"

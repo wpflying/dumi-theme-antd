@@ -122,7 +122,6 @@ const HomeBaseLayout: FC = () => {
       </div>
       <div className='yz-banner-content-link-item'>
         <div className='item-tips'><Link to='/introduction-art'> <HelpIcon /> 新手帮助</Link></div>
-        <div className='item-tips'><Link to='/introduction-art'> <HelpIcon /> 新手帮助</Link></div>
         <div className='item-tips'><Link to='/introduction-art'> <ProblemIcon /> 进阶管理</Link></div>
         <div className='item-tips'><Link to='/introduction-art'> <QuestIcon /> 常见问题</Link></div>
       </div>
