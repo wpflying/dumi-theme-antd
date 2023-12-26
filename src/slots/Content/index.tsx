@@ -115,7 +115,8 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
   const styles = useStyle();
   const { token } = useSiteToken();
   const { direction } = useContext(SiteContext);
-
+  const { pathname } = location;
+  const isHomePage = pathname === '/';
   const debugDemos = useMemo(
     () => meta.toc?.filter((item) => item._debug_demo).map((item) => item.id) || [],
     [meta]
@@ -246,7 +247,7 @@ const Content: FC<{ children: ReactNode }> = ({ children }) => {
         <EditLink />
       </div>
       <PrevAndNext rtl={isRTL} />
-      <Footer />
+      {isHomePage && <Footer />}
     </Col>
   );
 };

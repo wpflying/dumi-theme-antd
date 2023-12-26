@@ -32,11 +32,16 @@
     margin: 15px;
     display: flex;
     flex-direction: column;
-    
+    transition: all linear .1s;
+    overflow: hidden;
+}
+.column-artcile:hover{
+    box-shadow: 4px 8px 12px 0px rgba(15,14,47,0.05);
+        
 }
 .column-artcile-header{
     display: flex;
-    padding:20px 20px 0 20px;
+    padding:24px 40px  0 40px;
 
 }
 .column-artcile-header-icon{
@@ -44,7 +49,6 @@
     height: 48px;
     border-radius: 12px;
     border: 1px solid #DDE7F5;
-    margin-right: 20px;
 }
 .column-artcile-header-des{
     flex: 1;
@@ -78,6 +82,10 @@
     margin-top: 40px;
     flex: 1;
     overflow: hidden;
+    padding: 0 40px;
+}
+.list-item:hover{
+    color: #00C1DC;
 }
 
 .list-item{
@@ -96,6 +104,9 @@
     display: inline-block;
     width: 24px;
     height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .art-footer{
     height: 66px;

@@ -4,11 +4,8 @@ import { Col, Row} from 'antd';
 import classNames from 'classnames';
 import { useLocation } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
-import React, { useCallback, useContext, useEffect, useState, type FC } from 'react';
-import useAdditionalThemeConfig from '../../hooks/useAdditionalThemeConfig';
+import React, { useCallback, useEffect, useState, type FC } from 'react';
 import useSiteToken from '../../hooks/useSiteToken';
-import type { SiteContextProps } from '../SiteContext';
-import SiteContext from '../SiteContext';
 import Logo from './Logo';
 import BackBtn from './BackToMain';
 
@@ -176,8 +173,8 @@ const Header: FC = () => {
   }, [onWindowResize]);
 
   const { pathname } = location;
-  const isHome = ['', 'index', 'index-cn'].includes(pathname);
   const isHomePage = pathname === '/';
+  const isHome = ['', 'index', 'index-cn'].includes(pathname);
   const { windowWidth } = headerState;
   const style = useStyle();
   const headerClassName = classNames({

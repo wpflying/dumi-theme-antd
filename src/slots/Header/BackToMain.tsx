@@ -1,6 +1,8 @@
 import './index.css';
+import useLocaleValue from '../../hooks/useLocaleValue';
 import { RightOutlined } from '@ant-design/icons';
 const  BackBtn  = ()=>{
-    return <div className="header-btn" onClick={()=>{console.log('即将返回工作台')}}>返回工作台 <RightOutlined /></div>
+  const rebackUrl = useLocaleValue('rebackUrl');
+    return <div className="header-btn" onClick={()=>{window.open(rebackUrl,"_blank")}}>返回工作台 <RightOutlined /></div>
 }
 export default BackBtn; 

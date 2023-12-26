@@ -61,6 +61,30 @@ a{
     color: #646870;
     line-height: 20px;
     cursor: pointer;
+    position: relative;
+}
+
+.yz-banner-content-tips>div:nth-child(3)::before{
+     content: '';
+     display: inline-block;
+     position: absolute;
+     width: 1px;
+    height: 12px;
+    top: 5px;
+    background-color: #DBE1E7;
+    left: 0;
+    
+}
+.yz-banner-content-tips>div:nth-child(3)::after{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 1px;
+   height: 12px;
+   top: 5px;
+   background-color: #DBE1E7;
+   right: 0;
+   
 }
 .yz-banner-content-tips>div>a{
     text-decoration: none;
@@ -89,9 +113,16 @@ a{
     align-items: center;
     margin:  0 15px;
     cursor: pointer;
-    padding-left: 20px;
     display: flex;
     align-items: center;
+    transition: all linear  0.1s;
+}
+.yz-banner-content-link-item >div:hover{
+    transform: translateY(-5px);
+}
+
+.yz-banner-content-link-item > .item-tips:hover a{
+    color: #00C1DC;
 }
 .yz-banner-content-link-item >div >span{
     display:inline-block;
@@ -107,6 +138,9 @@ a{
     display: flex;
     justify-content: center;
 }
+.footer-list .footer-item:nth-child(3) .line-border{
+    display: none;
+}
     
 .dumi-default-search-popover{
     z-index: 99 !important;
@@ -120,6 +154,6 @@ a{
     width: 100%;
     height: 100%;
     justify-content: flex-start;
-    padding-left: 26px;
+    padding-left: 24px;
     align-items: center;
 }

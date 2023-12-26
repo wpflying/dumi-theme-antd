@@ -37,6 +37,7 @@ const DocLayout: FC = () => {
     () => pathname.startsWith('/index') && routeMeta.texts.length === 0,
     [pathname, routeMeta]
   );
+  const isHomePage = pathname === '/';
   const content = useMemo(() => {
     if (
       ['', '/'].some((path) => path === pathname) ||

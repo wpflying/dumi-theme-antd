@@ -2,6 +2,7 @@
 import './index.css';
 import { RightOutlined } from '@ant-design/icons';
 import { Link } from 'dumi';
+import ListIcon from '../../../icons/ListIcon';
 import React  from 'react';
 
 function List(props: any){
@@ -20,12 +21,12 @@ function List(props: any){
         {artItem && artItem.length > 0  ? <>
             {artItem.map(item=>{
             const currentLink = item.children?.length > 0 ? item.children[0].link : item.link
-                return <Link to={currentLink} key={item.link} > <div className='list-item'><span />{item.title}</div></Link>
+                return <Link to={currentLink} key={item.link} > <div className='list-item'><ListIcon />{item.title}</div></Link>
             })}
         </> : '暂无相关文章...' }
         </div>
         <div className='art-footer'>
-           <Link to={currentLink} > 查看全部 &nbsp;<RightOutlined/></Link>
+           <Link to={currentLink} > 查看全部 &nbsp;<RightOutlined style={{ color: '#00C1DC' }}/></Link>
         </div>
     </div>
 }

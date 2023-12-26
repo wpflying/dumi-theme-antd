@@ -3,7 +3,6 @@ import React from 'react';
 
 const SVGIcon: React.FC = () => (
 <svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <title>编组 23</title>
     <defs>
         <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-D">
             <stop stop-color="#E2E8F1" offset="0%"></stop>

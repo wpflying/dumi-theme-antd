@@ -9,15 +9,14 @@ import { IBannerConfig } from '../../types';
 import ArticleList from './components/Article';
 import FooterItem from './components/FooterItem';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
+import AsideList from '../AsideList';
 import './index.css';
 
 import  QuestIcon from '../../icons/QuestIcon';
 import  HelpIcon from '../../icons/HelpIcon';
 import  HotIcon from '../../icons/HotIcon';
 import  ProblemIcon from '../../icons/ProblemIcon';
-import ChartIcon from '../../icons/ChartIcon';
-import PhoneIcon from '../../icons/PhoneIcon';
-import MailIcon from '../../icons/MailIcon';
+
 import useLocaleValue from '../../hooks/useLocaleValue';
 const bannerConfigDefault: IBannerConfig = {
   showBanner: true,
@@ -65,41 +64,14 @@ const useStyle = () => {
   };
 };
 
-const allFooterData = [
-  {
-    title:'在线咨询',
-    des:'提供全方位的技术支持服务',
-    isBtn:true,
-    icon: ChartIcon
-  },
-  {
-    title:'服务热线',
-    des:'工作时间: 周一至周五: 9:00-21',
-    isBtn:false,
-    icon: PhoneIcon,
-    contactInformation:'021-61234725'
-  },
-  {
-    title:'服务邮箱',
-    des:'工作时间: 周一至周五: 9:00-21',
-    isBtn:false,
-    icon: MailIcon,
-    contactInformation:'yizhu@ ezbim.net'
-  },
-]
 
 const HomeBaseLayout: FC = () => {
   const style = useStyle();
   const {  theme } = useContext<SiteContextProps>(SiteContext);
   const { bannerConfig } = useAdditionalThemeConfig();
   const meunDatas = useLocaleValue('defaultMeun');
-  // const actions: IAction[] = useLocaleValue('actions');
-  // const { token } = useSiteToken();
-  // const title = useLocaleValue('title');
-  // const meunDatas = useLocaleValue('title');
-
-  // const [searchParams] = useSearchParams();
-
+  const chartAiUrl = useLocaleValue('chartAiUrl');
+  const allFooterData = useLocaleValue('footerItem');
   // 如果配置了 bannerImgUrl 字段，展示配置图片，否则展示 ant-design 默认 banner 视频
   const { showBanner } = Object.assign(
     bannerConfigDefault,
@@ -110,7 +82,7 @@ const HomeBaseLayout: FC = () => {
       <div className='yz-banner-content-title'>请问有什么可以帮助你？</div>
       <div className='yz-banner-content-search'> 
           <div className='search-center'>
-            <DumiSearchBar/>
+            <DumiSearchBar />
           </div>
           
       </div>
@@ -128,6 +100,7 @@ const HomeBaseLayout: FC = () => {
   </div>
   return (
     <div css={style.mainContent}>
+      <AsideList />
       <div
           style={{
             background: '#77C6FF',
@@ -146,7 +119,7 @@ const HomeBaseLayout: FC = () => {
           })}
         </div>
         <div className='footer-list'>
-          {allFooterData.map(item=><FooterItem key={item.title} {...item}/>)}
+          {allFooterData.map(item=><FooterItem chartAiUrl={chartAiUrl} key={item.title} {...item}/>)}
         </div>
       </div>
     </div>

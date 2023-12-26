@@ -60,12 +60,11 @@ const Logo = () => {
   const { search } = useLocation();
   const locale = useLocale();
   const logImgUrl =
-    themeConfig.logo || require('../../icons/nav_logo.png');
+    themeConfig.logo || require('../../icons/logo_header.png');
   const content = useMemo(
     () => (
       <Fragment>
-        <img alt="logo" src={require('../../icons/nav_logo.png')} />
-        {/* <span style={{ lineHeight: 32 }}>{themeConfig.name}</span> */}
+        <img alt="logo" src={logImgUrl} />
       </Fragment>
     ),
     [logImgUrl, themeConfig.name]
